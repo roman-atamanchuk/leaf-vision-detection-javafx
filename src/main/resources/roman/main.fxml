@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="roman.MainController">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <Button text="Load Image" onAction="#onLoadImage"/>
+            <Label fx:id="statusLabel" text="Choose an image to begin"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="10" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Original Image"/>
+                <ImageView fx:id="originalImageView"
+                           fitWidth="500"
+                           fitHeight="500"
+                           preserveRatio="true"/>
+            </VBox>
+
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Black and White Image"/>
+                <ImageView fx:id="blackWhiteImageView"
+                           fitWidth="500"
+                           fitHeight="500"
+                           preserveRatio="true"/>
+            </VBox>
+
+            <VBox spacing="12">
+                <Label text="Brightness Threshold"/>
+                <Slider fx:id="brightnessSlider"
+                        min="0"
+                        max="1"
+                        value="0.45"
+                        blockIncrement="0.01"/>
+                <Label fx:id="brightnessValueLabel" text="0.45"/>
+
+                <Label text="Saturation Threshold"/>
+                <Slider fx:id="saturationSlider"
+                        min="0"
+                        max="1"
+                        value="0.15"
+                        blockIncrement="0.01"/>
+                <Label fx:id="saturationValueLabel" text="0.15"/>
+
+                <Label text="Difference Threshold"/>
+                <Slider fx:id="differenceSlider"
+                        min="0"
+                        max="255"
+                        value="80"
+                        blockIncrement="1"/>
+                <Label fx:id="differenceValueLabel" text="80"/>
+
+                <Label text="Target Object Colour"/>
+                <ColorPicker fx:id="targetColorPicker"/>
+                <Button text="Add Reference Colour" onAction="#onAddReferenceColor"/>
+                <Button text="Clear Reference Colours" onAction="#onClearReferenceColors"/>
+                <Label text="Reference Colours"/>
+                <HBox fx:id="referenceColorsBox" spacing="6"/>
+                <Label fx:id="referenceCountLabel" text="0 / 5"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>
