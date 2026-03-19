@@ -28,14 +28,14 @@
     </top>
 
     <center>
-        <HBox spacing="20" alignment="TOP_CENTER">
+        <HBox spacing="20" alignment="TOP_LEFT" fillHeight="false">
             <padding>
                 <Insets top="10" right="15" bottom="15" left="15"/>
             </padding>
 
-            <VBox spacing="10" alignment="CENTER">
+            <VBox spacing="10" alignment="TOP_CENTER" prefWidth="520">
                 <Label text="Original Image"/>
-                <StackPane>
+                <StackPane alignment="TOP_CENTER" minHeight="500" prefHeight="500">
                     <ImageView fx:id="originalImageView"
                                fitWidth="500"
                                fitHeight="500"
@@ -46,15 +46,25 @@
                 </StackPane>
             </VBox>
 
-            <VBox spacing="10" alignment="CENTER">
+            <VBox spacing="10" alignment="TOP_CENTER" prefWidth="520">
                 <Label text="Black and White Image"/>
-                <ImageView fx:id="blackWhiteImageView"
-                           fitWidth="500"
-                           fitHeight="500"
-                           preserveRatio="true"/>
+                <StackPane alignment="TOP_CENTER" minHeight="500" prefHeight="500">
+                    <ImageView fx:id="blackWhiteImageView"
+                               fitWidth="500"
+                               fitHeight="500"
+                               preserveRatio="true"/>
+                </StackPane>
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Randomly Colour Clusters"
+                            onAction="#onRandomlyColorClusters"/>
+                    <Button text="Choose Start Cluster"
+                            onAction="#onChooseStartCluster"/>
+                    <Button text="Animate TSP Path"
+                            onAction="#onAnimatePath"/>
+                </HBox>
             </VBox>
 
-            <VBox spacing="12">
+            <VBox spacing="12" prefWidth="280" alignment="TOP_LEFT">
                 <Label text="Brightness Threshold"/>
                 <Slider fx:id="brightnessSlider"
                         min="0"
