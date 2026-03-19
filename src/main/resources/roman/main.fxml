@@ -5,9 +5,12 @@
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
@@ -32,10 +35,15 @@
 
             <VBox spacing="10" alignment="CENTER">
                 <Label text="Original Image"/>
-                <ImageView fx:id="originalImageView"
-                           fitWidth="500"
-                           fitHeight="500"
-                           preserveRatio="true"/>
+                <StackPane>
+                    <ImageView fx:id="originalImageView"
+                               fitWidth="500"
+                               fitHeight="500"
+                               preserveRatio="true"/>
+                    <Pane fx:id="originalOverlayPane"
+                          mouseTransparent="false"
+                          pickOnBounds="false"/>
+                </StackPane>
             </VBox>
 
             <VBox spacing="10" alignment="CENTER">
@@ -71,6 +79,14 @@
                         blockIncrement="1"/>
                 <Label fx:id="differenceValueLabel" text="80"/>
 
+                <Label text="Min Cluster Size"/>
+                <Slider fx:id="minClusterSizeSlider"
+                        min="1"
+                        max="500"
+                        value="10"
+                        blockIncrement="1"/>
+                <Label fx:id="minClusterSizeValueLabel" text="10"/>
+
                 <Label text="Target Object Colour"/>
                 <ColorPicker fx:id="targetColorPicker"/>
                 <Button text="Add Reference Colour" onAction="#onAddReferenceColor"/>
@@ -78,6 +94,13 @@
                 <Label text="Reference Colours"/>
                 <HBox fx:id="referenceColorsBox" spacing="6"/>
                 <Label fx:id="referenceCountLabel" text="0 / 5"/>
+                <Label text="Clusters Found"/>
+                <Label fx:id="clusterCountLabel" text="0"/>
+                <TextArea fx:id="clusterInfoTextArea"
+                          prefWidth="250"
+                          prefHeight="220"
+                          editable="false"
+                          wrapText="true"/>
             </VBox>
         </HBox>
     </center>
