@@ -1,8 +1,17 @@
-# Image To Black And White
+# Leaf Vision: Colour Object Detection (JavaFX)
 
 A JavaFX desktop app that finds coloured objects in a photo (for example, autumn
 leaves on grass), counts them, draws a box around each one and animates a short
 route that visits them all.
+
+![Detected leaves with bounding boxes and the black-and-white mask](screenshots/detection.png)
+
+| Each cluster in its own colour | Nearest-neighbour route through all clusters |
+|---|---|
+| ![Clusters painted in random colours](screenshots/clusters.png) | ![Yellow route connecting the clusters](screenshots/route.png) |
+
+*Settings used: orange reference colour, Difference Threshold 80, Min Cluster
+Size 40 (175 leaves found).*
 
 ## Running
 
@@ -125,6 +134,7 @@ src/main/java/roman/
   ColorMatcher.java      reference-colour matching
   UnionFind.java         disjoint-set structure
 src/main/resources/roman/main.fxml   screen layout
+screenshots/                          images used in this README
 src/test/java/roman/
   algorithm/  image/  model/         JUnit 5 tests
   benchmark/                         JMH benchmarks (run BenchmarkRunner)
