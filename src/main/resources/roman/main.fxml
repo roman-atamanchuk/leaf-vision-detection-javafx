@@ -23,6 +23,7 @@
                 <Insets top="15" right="15" bottom="15" left="15"/>
             </padding>
             <Button text="Load Image" onAction="#onLoadImage"/>
+            <Button text="Exit" onAction="#onExitApplication"/>
             <Label fx:id="statusLabel" text="Choose an image to begin"/>
         </HBox>
     </top>
@@ -96,6 +97,14 @@
                         value="10"
                         blockIncrement="1"/>
                 <Label fx:id="minClusterSizeValueLabel" text="10"/>
+
+                <Label text="Max Cluster Size"/>
+                <Slider fx:id="maxClusterSizeSlider"
+                        min="10"
+                        max="20000"
+                        value="5000"
+                        blockIncrement="10"/>
+                <Label fx:id="maxClusterSizeValueLabel" text="5000"/>
 
                 <Label text="Target Object Colour"/>
                 <ColorPicker fx:id="targetColorPicker"/>
